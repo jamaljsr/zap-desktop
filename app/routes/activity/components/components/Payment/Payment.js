@@ -38,7 +38,12 @@ const Payment = ({ payment, ticker, currentTicker, showActivityModal, nodes, cur
       <div className={styles.amount}>
         <span className="hint--top" data-hint="Payment amount">
           <i className={styles.minus}>-</i>
-          <Value value={payment.value} currency={ticker.currency} currentTicker={currentTicker} />
+          <Value
+            value={payment.value}
+            currency={ticker.currency}
+            currentTicker={currentTicker}
+            fiatTicker={ticker.fiatTicker}
+          />
           <i> {currencyName}</i>
         </span>
         <span className="hint--bottom" data-hint="Payment fee">

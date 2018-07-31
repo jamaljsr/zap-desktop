@@ -232,7 +232,7 @@ export default merge.smart(baseConfig, {
         "'self'",
         'http://localhost:*',
         'ws://localhost:*',
-        'https://api.coinmarketcap.com',
+        'https://blockchain.info/ticker',
         'https://zap.jackmallers.com'
       ],
       'script-src': ["'self'", 'http://localhost:*', "'unsafe-eval'"],
@@ -289,9 +289,9 @@ export default merge.smart(baseConfig, {
       )
       app.use(
         convert(
-          proxy('/proxy/api.coinmarketcap.com', {
-            target: 'https://api.coinmarketcap.com',
-            pathRewrite: { '^/proxy/api.coinmarketcap.com': '' },
+          proxy('/proxy/blockchain.info', {
+            target: 'https://blockchain.info/ticker',
+            pathRewrite: { '^/proxy/blockchain.info': '' },
             changeOrigin: true
           })
         )
