@@ -160,7 +160,7 @@ class Pay extends Component {
               </div>
             </div>
 
-            <div className={styles.usdAmount}>{`≈ ${usdAmount || 0} USD`}</div>
+            <div className={styles.usdAmount}>{`≈ ${usdAmount || 0} ${ticker.fiatTicker}`}</div>
 
             <section
               className={`${styles.errorMessage} ${styles.amount} ${showErrors.amount &&
