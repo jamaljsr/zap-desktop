@@ -66,7 +66,7 @@ const TransactionModal = ({
 
     <div className={styles.amount}>
       <h1>
-        <i className={`${styles.symbol} ${transaction.received && styles.active}`}>
+        <i className={`${styles.symbol} ${transaction.received ? styles.active : undefined}`}>
           {transaction.received ? '+' : '-'}
         </i>
         <Value
@@ -84,7 +84,7 @@ const TransactionModal = ({
         <span>
           <FaAngleDown />
         </span>
-        <ul className={showCurrencyFilters && styles.active}>
+        <ul className={showCurrencyFilters ? styles.active : undefined}>
           {currentCurrencyFilters.map(filter => (
             <li key={filter.key} onClick={() => onCurrencyFilterClick(filter.key)}>
               {filter.name}

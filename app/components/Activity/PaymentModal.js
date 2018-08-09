@@ -67,7 +67,7 @@ const PaymentModal = ({
         <span>
           <FaAngleDown />
         </span>
-        <ul className={showCurrencyFilters && styles.active}>
+        <ul className={showCurrencyFilters ? styles.active : undefined}>
           {currentCurrencyFilters.map(filter => (
             <li key={filter.key} onClick={() => onCurrencyFilterClick(filter.key)}>
               {filter.name}
