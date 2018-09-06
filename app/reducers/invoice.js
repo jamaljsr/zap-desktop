@@ -8,6 +8,7 @@ import { btc } from 'lib/utils'
 
 import { showActivityModal } from './activity'
 import { fetchBalance } from './balance'
+import { fetchChannels } from './channels'
 import { setFormType } from './form'
 import { setPayInvoice } from './payform'
 import { resetRequestForm } from './requestform'
@@ -164,6 +165,9 @@ export const invoiceUpdate = (event, { invoice }) => dispatch => {
 
   // Fetch new balance
   dispatch(fetchBalance())
+
+  // This API call to LND will not return updated balances unless a delay is added
+  setTimeout(() => dispatch(fetchChannels()), 500)
 
   decorateInvoice(invoice)
 

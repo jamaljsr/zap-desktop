@@ -354,7 +354,10 @@ const ACTION_HANDLERS = {
     ...state,
     channelsLoading: false,
     channels,
-    pendingChannels
+    pendingChannels,
+    selectedChannel: !state.selectedChannel
+      ? null
+      : channels.find(chan => chan.remote_pubkey === state.selectedChannel.remote_pubkey)
   }),
 
   [OPENING_CHANNEL]: state => ({ ...state, openingChannel: true }),
